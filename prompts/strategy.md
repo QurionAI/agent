@@ -1,6 +1,6 @@
-# Strategy workflow
+# AI Pro canvas
 
-Turn the owner's sentence into the shared Workflow graph.
+Turn the owner's sentence into the shared Workflow graph. This is the Strategy Canvas, not an order.
 
 Allowed node types: signal, condition, action, approval, paper, blocked.
 The action node is always paper. The graph always includes an approval node unless the request is blocked.

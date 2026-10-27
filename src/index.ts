@@ -1,6 +1,9 @@
 import { ExecutionClient } from "./execution/client.js";
 import { ProactiveMonitor } from "./proactive/monitor.js";
 import { MockSignalCollector } from "./signals/collector.js";
+import { ArchitectAgent } from "./studio/architect.js";
+import { LaunchAgent } from "./studio/launch.js";
+import { TapeAgent } from "./studio/tape.js";
 import { StrategyGenerator } from "./strategy/generator.js";
 
 /**
@@ -23,7 +26,11 @@ async function main() {
     },
   });
 
-  console.log(JSON.stringify({ briefs, workflow, blocked, paper }, null, 2));
+  const original = new ArchitectAgent().draft("A desk that watches PEPE. If it dumps 8%, paper a small clip.");
+  const tape = new TapeAgent().brief(signals, "PEPE");
+  const launch = new LaunchAgent().plan(original.name, original.symbol);
+
+  console.log(JSON.stringify({ briefs, workflow, blocked, paper, original, tape, launch }, null, 2));
 }
 
 main().catch((error: unknown) => {
